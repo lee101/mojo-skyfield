@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mojo-skyfield"
+version = "0.1.0"
+description = "Skyfield's ephemeris and satellite-propagation kernels, in Mojo"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = ["numpy"]
+
+[project.optional-dependencies]
+test = ["pytest", "skyfield", "sgp4"]
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.setuptools.package-data]
+mojo_skyfield = ["data/*.npz"]
